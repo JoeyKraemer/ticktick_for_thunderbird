@@ -1,0 +1,56 @@
+{
+  "manifest_version": 3,
+  "name": "TickTick for Thunderbird",
+  "short_name": "TickTick Tasks",
+  "version": "1.0.0",
+  "description": "Turn any email into a TickTick task, right from the message toolbar. Unofficial, not affiliated with TickTick.",
+  "author": "Joey Krämer",
+  "homepage_url": "https://github.com/JoeyKraemer/ticktick_for_thunderbird",
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "ticktick-thunderbird@roobyte.local",
+      "strict_min_version": "128.0"
+    }
+  },
+
+  "permissions": [
+    "storage",
+    "identity",
+    "messagesRead",
+    "accountsRead",
+    "clipboardWrite"
+  ],
+
+  "host_permissions": [
+    "https://ticktick.com/*",
+    "https://api.ticktick.com/*"
+  ],
+
+  "background": {
+    "scripts": ["background.js"],
+    "type": "module"
+  },
+
+  "message_display_action": {
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png"
+    },
+    "default_title": "Add to TickTick",
+    "default_popup": "popup/popup.html"
+  },
+
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  },
+
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "64": "icons/icon-64.png",
+    "128": "icons/icon-128.png"
+  }
+}

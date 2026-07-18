@@ -1,0 +1,115 @@
+body {
+  margin: 0;
+  font: 13px/1.4 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  color: #1c1c1c;
+}
+
+#app {
+  width: 320px;
+  padding: 12px 14px 14px;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+header h1 {
+  font-size: 14px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.notice {
+  background: #fff4e5;
+  border: 1px solid #f0c987;
+  border-radius: 6px;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+}
+
+.notice p {
+  margin: 0 0 6px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 12px;
+  color: #444;
+}
+
+input[type="text"],
+input[type="datetime-local"],
+select,
+textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 3px;
+  padding: 5px 6px;
+  font: inherit;
+  border: 1px solid #c6c6c6;
+  border-radius: 4px;
+  background: #fff;
+  color: #1c1c1c;
+}
+
+textarea {
+  resize: vertical;
+  font-family: inherit;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.row label {
+  flex: 1;
+}
+
+.status {
+  min-height: 16px;
+  font-size: 12px;
+  margin: 4px 0 8px;
+}
+
+.status.error {
+  color: #c0392b;
+}
+
+.status.success {
+  color: #1a7a3d;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+button {
+  font: inherit;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid #c6c6c6;
+  background: #f2f2f2;
+  cursor: pointer;
+}
+
+button#saveBtn {
+  background: #1a73e8;
+  border-color: #1a73e8;
+  color: #fff;
+  font-weight: 600;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}

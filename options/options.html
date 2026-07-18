@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>TickTick for Thunderbird - Settings</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <h1>TickTick for Thunderbird</h1>
+
+  <section>
+    <h2>1. Register a TickTick app</h2>
+    <p>
+      Go to the
+      <a href="https://developer.ticktick.com/manage" target="_blank" rel="noopener">
+        TickTick Developer Center</a>, sign in, and click <strong>+App Name</strong> to
+      register a new app. Then paste its <strong>Client ID</strong> and
+      <strong>Client Secret</strong> below.
+    </p>
+    <p>
+      In the app's <strong>OAuth Redirect URL</strong> field, paste this exact URL:
+    </p>
+    <div class="copyRow">
+      <code id="redirectUrl">loading&hellip;</code>
+      <button type="button" id="copyRedirectBtn">Copy</button>
+    </div>
+  </section>
+
+  <section>
+    <h2>2. Enter your credentials</h2>
+    <form id="settingsForm">
+      <label>
+        Client ID
+        <input type="text" id="clientId" autocomplete="off" />
+      </label>
+      <label>
+        Client Secret
+        <input type="password" id="clientSecret" autocomplete="off" />
+      </label>
+      <button type="submit" id="saveBtn">Save</button>
+      <span id="saveStatus" class="status" role="status"></span>
+    </form>
+  </section>
+
+  <section>
+    <h2>3. Connect your account</h2>
+    <p id="authStatus">Checking connection&hellip;</p>
+    <button type="button" id="connectBtn">Connect to TickTick</button>
+    <button type="button" id="disconnectBtn" hidden>Disconnect</button>
+  </section>
+
+  <section id="defaultProjectSection" hidden>
+    <h2>4. Default list (optional)</h2>
+    <p>New tasks default to this list unless overridden below or in the popup.</p>
+    <label>
+      Default list (fallback for all accounts)
+      <select id="defaultProject"></select>
+    </label>
+    <button type="button" id="saveDefaultProjectBtn">Save default list</button>
+    <span id="projectStatus" class="status" role="status"></span>
+  </section>
+
+  <section id="accountProjectSection" hidden>
+    <h2>5. Default list per email account (optional)</h2>
+    <p>
+      Emails from a given account will default to that account's list
+      instead of the fallback above. Choose "Use fallback" to remove an
+      override. Changes save automatically.
+    </p>
+    <table id="accountProjectTable">
+      <tbody id="accountProjectRows"></tbody>
+    </table>
+    <span id="accountProjectStatus" class="status" role="status"></span>
+  </section>
+
+  <script type="module" src="options.js"></script>
+</body>
+</html>

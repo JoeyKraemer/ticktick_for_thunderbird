@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Add to TickTick</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <img src="../icons/icon-32.png" alt="" width="20" height="20" />
+      <h1>Add to TickTick</h1>
+    </header>
+
+    <div id="authNotice" class="notice" hidden>
+      <p>You're not connected to TickTick yet.</p>
+      <button type="button" id="openOptionsBtn">Open Settings to Connect</button>
+    </div>
+
+    <form id="taskForm">
+      <label>
+        Title
+        <input type="text" id="title" required maxlength="500" />
+      </label>
+
+      <label>
+        List
+        <select id="project"></select>
+      </label>
+
+      <div class="row">
+        <label>
+          Due date
+          <input type="datetime-local" id="dueDate" />
+        </label>
+        <label>
+          Priority
+          <select id="priority">
+            <option value="0">None</option>
+            <option value="1">Low</option>
+            <option value="3">Medium</option>
+            <option value="5">High</option>
+          </select>
+        </label>
+      </div>
+
+      <label>
+        Notes
+        <textarea id="content" rows="6"></textarea>
+      </label>
+
+      <div id="statusMsg" class="status" role="status" aria-live="polite"></div>
+
+      <div class="actions">
+        <button type="button" id="cancelBtn">Cancel</button>
+        <button type="submit" id="saveBtn">Add Task</button>
+      </div>
+    </form>
+  </div>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
