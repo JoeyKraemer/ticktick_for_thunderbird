@@ -1,0 +1,15 @@
+{
+  "name": "ticktick-for-thunderbird",
+  "version": "1.0.0",
+  "description": "Turn any email into a TickTick task, right from the message toolbar.",
+  "private": true,
+  "scripts": {
+    "build": "web-ext build --source-dir . --artifacts-dir dist --overwrite-dest --ignore-files 'package.json' --ignore-files 'package-lock.json' --ignore-files 'node_modules/**'",
+    "lint": "web-ext lint --self-hosted --ignore-files 'package.json' --ignore-files 'package-lock.json' --ignore-files 'node_modules/**'",
+    "start": "web-ext run --target thunderbird-desktop --source-dir ."
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "web-ext": "^8.0.0"
+  }
+}

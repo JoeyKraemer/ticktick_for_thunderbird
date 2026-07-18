@@ -35,6 +35,21 @@ manifest.json
   developer console.
 - **API calls**: plain `fetch()` against `api.ticktick.com/open/v1/...`, with
   the bearer token stored in `browser.storage.local`.
+
+## Building
+
+The `dist/` folder (containing the packaged `.xpi`) is gitignored - it's a
+build artifact, not source, so it's never committed. Rebuild it anytime with:
+
+```sh
+npm install   # first time only, installs web-ext locally
+npm run build # -> dist/ticktick_for_thunderbird-1.0.0.zip (rename/copy to .xpi)
+npm run lint  # runs web-ext lint (a few Thunderbird-only-API warnings are expected/harmless)
+```
+
+`npm run build` explicitly excludes `package.json`/`package-lock.json`/
+`node_modules` from the packaged extension - only the actual source files
+listed in the architecture diagram above get shipped.
 - **Per-account default list**: `messenger.accounts.list()` (needs
   `accountsRead`) populates a settings table mapping each mail account to a
   TickTick list; `message.folder.accountId` on the open message resolves
@@ -162,11 +177,8 @@ signed extensions by default. Options:
   `xpinstall.signatures.required` to `false` in `about:config`, letting you
   install unsigned XPIs directly (not recommended for daily-driver profiles).
 
-To build the `.xpi` for submission/signing:
-
-```sh
-npx web-ext build --source-dir . --artifacts-dir dist
-```
+Run `npm run build` (see "Building" above) to produce the `.xpi`/`.zip` for
+submission/signing.
 
 ## Known limitations / things to watch out for
 
